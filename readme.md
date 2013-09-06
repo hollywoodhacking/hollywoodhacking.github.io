@@ -1,6 +1,8 @@
 h2. License 
 
-(c) Copyright 2011 Simone Masiero. Some Rights Reserved. 
+
+Adapted from work by Simone Masiero [https://github.com/duiker101/Hacker-Typer]
+
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
 	<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/au/88x31.png" />
