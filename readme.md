@@ -1,7 +1,7 @@
 h2. License 
 
 
-Adapted from work by Simone Masiero [https://github.com/duiker101/Hacker-Typer]
+Adapted from work by Simone Masiero https://github.com/duiker101/Hacker-Typer
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
