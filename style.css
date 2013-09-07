@@ -1,7 +1,14 @@
+html{height:100%;}
 body{
+	margin:0;
+	height:100%;
 	background:#222;
-	color:#00FF00; */
+	color:#DDD;
 	font-family:monospace;
 }
 
-#console{ height : 100%;}
+#panel{ height : 100%;}
+
+.viewport{height: calc(100% - 20px);}
+
+.footer{height:20px; background:#444;}

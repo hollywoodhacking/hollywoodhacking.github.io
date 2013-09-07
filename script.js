@@ -38,6 +38,8 @@ var Typer={
 			myCodeMirror.setCursor(Typer.index, Typer.index);
 
 			//$('#debug').html(Typer.index);
+			var cursor = myCodeMirror.getCursor();
+			$('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
 			window.scrollBy(0,50);
 		}
 
