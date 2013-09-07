@@ -12,27 +12,46 @@ $( document ).keydown(
 	}
 );
 
+var App = function(){}
+
+App.prototype.start = function(){
+
+};
+
 var Typer={
 	text: '',
 	index:0,
-	file:'',
+	file:'static/js.txt',
 	init: function(){
 		$.get(Typer.file,function(data){
 			Typer.text=data;
 			document.title = Typer.file + ' :: Line 0, Column 0';
 		});
 	},
+
+	type : function(){
+		Typer.index++;
+	},
+
+	backspace : function(){
+		if(Typer.index>0){
+			Typer.index--;
+		}
+	},
+
+	getText : function (){
+		return Typer.text.substring(0,Typer.index);
+	},
 	
 	
 	addText:function(key){
-		if(Typer.text){
+		if(Typer.text !== ''){
 			if(key.keyCode!=8){ // backspace
-				Typer.index++;
+				Typer.type();
 			}else{
-				if(Typer.index>0)
-					Typer.index--;
+				Typer.backspace();	
 			}
-			var text = Typer.text.substring(0,Typer.index);
+			var text = Typer.getText();
 			
 			myCodeMirror.setValue(text);
 			myCodeMirror.setCursor(Typer.index, Typer.index);
@@ -53,8 +72,6 @@ var Typer={
 		}
 	}
 };
-
-Typer.file='static/js.txt';
 
 Typer.init();
 var myCodeMirror = CodeMirror($('.viewport')[0],{mode: "javascript", lineNumbers: true});
