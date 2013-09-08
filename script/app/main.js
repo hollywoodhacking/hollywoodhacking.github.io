@@ -35,7 +35,7 @@ var App={
 		var text = typer.getText();
 		
 		myCodeMirror.setValue(text);
-		myCodeMirror.setCursor(typer.index, typer.index);
+		myCodeMirror.setCursor(text.length, text.length);
 
 		//$('#debug').html(Typer.index);
 		var cursor = myCodeMirror.getCursor();
