@@ -6,10 +6,13 @@ class EditorView extends View{
 
   private codeMirror:any;
   private type:string;
+  public events = {
+    'click': 'clickHandle'
+  };
 
   constructor(text:string, type){
-    this.type = type;
     super(text);
+    this.type = type;
   }
 
   public render():JQuery{
@@ -30,6 +33,10 @@ class EditorView extends View{
   private updateStatusBar():void{
     var cursor = this.codeMirror.getCursor();
     this.$('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
+  }
+
+  private clickHandle():void{
+    alert('yo!');
   }
 }
 

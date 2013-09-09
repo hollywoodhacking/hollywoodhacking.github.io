@@ -11,8 +11,11 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
     var EditorView = (function (_super) {
         __extends(EditorView, _super);
         function EditorView(text, type) {
-            this.type = type;
             _super.call(this, text);
+            this.events = {
+                'click': 'clickHandle'
+            };
+            this.type = type;
         }
         EditorView.prototype.render = function () {
             var el = _super.prototype.render.call(this);
@@ -31,6 +34,10 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
         EditorView.prototype.updateStatusBar = function () {
             var cursor = this.codeMirror.getCursor();
             this.$('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
+        };
+
+        EditorView.prototype.clickHandle = function () {
+            alert('yo!');
         };
         return EditorView;
     })(View);
