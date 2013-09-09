@@ -1,7 +1,7 @@
 class Typer {
 
-  private typedText:String = '';
-  private fullText:String = '';
+  private typedText:string = '';
+  private fullText:string = '';
   private index:number = 0;
 
   public setText(text:string):void{
@@ -31,7 +31,7 @@ class Typer {
 		}
 	}
 
-	public getText():String{
+	public getText():string{
 		return this.typedText;
 	}
 

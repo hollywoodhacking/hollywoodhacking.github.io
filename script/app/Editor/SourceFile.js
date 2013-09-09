@@ -1,5 +1,5 @@
-/// <reference path="AppDefinitions.d.ts"/>
-define(["require", "exports", 'Typer'], function(require, exports, __Typer__) {
+/// <reference path="../AppDefinitions.d.ts"/>
+define(["require", "exports", 'Editor/Typer'], function(require, exports, __Typer__) {
     var Typer = __Typer__;
 
     var SourceFile = (function () {

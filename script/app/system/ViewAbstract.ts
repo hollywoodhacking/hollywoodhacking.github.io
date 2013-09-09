@@ -1,8 +1,0 @@
-
-class ViewAbstract {
-
-
-
-}
-
-export = ViewAbstract;

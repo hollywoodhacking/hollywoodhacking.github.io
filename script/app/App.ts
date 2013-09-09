@@ -1,43 +1,29 @@
 /// <reference path="AppDefinitions.d.ts"/>
 
-import SourceFile = require('SourceFile');
-import Typer = require('Typer');
+import Editor = require('Editor/Editor');
 
 class App{
 
-  private typer:Typer;
-  private sourceFile:SourceFile;
-  private myCodeMirror:any;
+  private editor:Editor;
 
-  constructor(typer:Typer, sourceFile:SourceFile, myCodeMirror:any){
-    this.typer = typer;
-    this.sourceFile = sourceFile;
-    this.myCodeMirror = myCodeMirror;
+  constructor(){
+    this.editor = new Editor('static/js.txt', 'javascript');
   }
 
   public init():void{
     $( document ).keydown( _(this.keydown).bind(this) );
 
-    this.myCodeMirror.focus();
-    this.sourceFile.load('static/js.txt');
+    this.editor.init();
   }
 
-  private keydown(event){
+  private keydown(event):void{
 
-    if(event.keyCode!=8){ // backspace
-      this.typer.typeSingleLetter();
-    }else{
-      this.typer.backspace();
-    }
+    this.editor.update(event);
 
-    var text = this.typer.getText();
-    this.myCodeMirror.setValue(text);
-    this.myCodeMirror.setCursor({line: text.length, ch: text.length});
+    this.preventDefaults(event);
+  }
 
-
-    var cursor = this.myCodeMirror.getCursor();
-    $('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
-
+  private preventDefaults(event):void{
     // let F11 pass through but capture all other keys
     if(event.keyCode != 122){
       if(event.preventDefault){

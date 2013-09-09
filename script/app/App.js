@@ -1,35 +1,24 @@
 /// <reference path="AppDefinitions.d.ts"/>
-define(["require", "exports", 'SourceFile', 'Typer'], function(require, exports, __SourceFile__, __Typer__) {
-    var SourceFile = __SourceFile__;
-    var Typer = __Typer__;
+define(["require", "exports", 'Editor/Editor'], function(require, exports, __Editor__) {
+    var Editor = __Editor__;
 
     var App = (function () {
-        function App(typer, sourceFile, myCodeMirror) {
-            this.typer = typer;
-            this.sourceFile = sourceFile;
-            this.myCodeMirror = myCodeMirror;
+        function App() {
+            this.editor = new Editor('static/js.txt', 'javascript');
         }
         App.prototype.init = function () {
             $(document).keydown(_(this.keydown).bind(this));
 
-            this.myCodeMirror.focus();
-            this.sourceFile.load('static/js.txt');
+            this.editor.init();
         };
 
         App.prototype.keydown = function (event) {
-            if (event.keyCode != 8) {
-                this.typer.typeSingleLetter();
-            } else {
-                this.typer.backspace();
-            }
+            this.editor.update(event);
 
-            var text = this.typer.getText();
-            this.myCodeMirror.setValue(text);
-            this.myCodeMirror.setCursor({ line: text.length, ch: text.length });
+            this.preventDefaults(event);
+        };
 
-            var cursor = this.myCodeMirror.getCursor();
-            $('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
-
+        App.prototype.preventDefaults = function (event) {
             if (event.keyCode != 122) {
                 if (event.preventDefault) {
                     event.preventDefault();
