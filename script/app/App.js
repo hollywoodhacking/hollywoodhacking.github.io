@@ -1,7 +1,8 @@
 /// <reference path="AppDefinitions.d.ts"/>
-/// <reference path="Typer.ts"/>
-/// <reference path="SourceFile.ts"/>
-define(["require", "exports"], function(require, exports) {
+define(["require", "exports", 'SourceFile', 'Typer'], function(require, exports, __SourceFile__, __Typer__) {
+    var SourceFile = __SourceFile__;
+    var Typer = __Typer__;
+
     var App = (function () {
         function App(typer, sourceFile, myCodeMirror) {
             this.typer = typer;
@@ -24,7 +25,7 @@ define(["require", "exports"], function(require, exports) {
 
             var text = this.typer.getText();
             this.myCodeMirror.setValue(text);
-            this.myCodeMirror.setCursor(text.length);
+            this.myCodeMirror.setCursor({ line: text.length, ch: text.length });
 
             var cursor = this.myCodeMirror.getCursor();
             $('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);

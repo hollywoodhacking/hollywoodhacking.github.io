@@ -1,5 +1,6 @@
 /// <reference path="AppDefinitions.d.ts"/>
-/// <reference path="Typer.ts" />
+
+import Typer = require('Typer');
 
 class SourceFile {
   private typer : Typer;

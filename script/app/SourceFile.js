@@ -1,6 +1,7 @@
 /// <reference path="AppDefinitions.d.ts"/>
-/// <reference path="Typer.ts" />
-define(["require", "exports"], function(require, exports) {
+define(["require", "exports", 'Typer'], function(require, exports, __Typer__) {
+    var Typer = __Typer__;
+
     var SourceFile = (function () {
         function SourceFile(typer) {
             this.typer = typer;

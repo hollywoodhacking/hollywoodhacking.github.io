@@ -1,6 +1,7 @@
 /// <reference path="AppDefinitions.d.ts"/>
-/// <reference path="Typer.ts"/>
-/// <reference path="SourceFile.ts"/>
+
+import SourceFile = require('SourceFile');
+import Typer = require('Typer');
 
 class App{
 
@@ -31,7 +32,7 @@ class App{
 
     var text = this.typer.getText();
     this.myCodeMirror.setValue(text);
-    this.myCodeMirror.setCursor(text.length);
+    this.myCodeMirror.setCursor({line: text.length, ch: text.length});
 
 
     var cursor = this.myCodeMirror.getCursor();
