@@ -1,9 +1,18 @@
 /// <reference path="../AppDefinitions.d.ts"/>
-define(["require", "exports", 'Editor/Typer'], function(require, exports, __Typer__) {
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+define(["require", "exports", 'Editor/Typer', 'system/EventType'], function(require, exports, __Typer__, __EventType__) {
     var Typer = __Typer__;
+    var EventType = __EventType__;
 
-    var SourceFile = (function () {
+    var SourceFile = (function (_super) {
+        __extends(SourceFile, _super);
         function SourceFile(typer) {
+            _super.call(this);
             this.typer = typer;
         }
         SourceFile.prototype.load = function (path) {
@@ -11,10 +20,12 @@ define(["require", "exports", 'Editor/Typer'], function(require, exports, __Type
 
             $.get(path, function (data) {
                 _this.typer.setText(data);
+
+                _this.trigger('load');
             });
         };
         return SourceFile;
-    })();
+    })(EventType);
 
     
     return SourceFile;

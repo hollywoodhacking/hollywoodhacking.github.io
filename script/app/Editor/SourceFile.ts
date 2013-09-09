@@ -1,11 +1,13 @@
 /// <reference path="../AppDefinitions.d.ts"/>
 
 import Typer = require('Editor/Typer');
+import EventType = require('system/EventType');
 
-class SourceFile {
+class SourceFile extends EventType{
   private typer : Typer;
 
   constructor(typer: Typer){
+    super();
     this.typer = typer;
   }
 
@@ -15,6 +17,8 @@ class SourceFile {
 
     $.get(path,function(data){
       _this.typer.setText(data);
+
+      _this.trigger('load');
     });
   }
 }

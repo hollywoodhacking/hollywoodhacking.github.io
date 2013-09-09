@@ -4,6 +4,10 @@ define(["require", "exports"], function(require, exports) {
         function View(text) {
             this.$el = $(text);
         }
+        View.prototype.render = function () {
+            return this.$el;
+        };
+
         View.prototype.$ = function (selector) {
             return this.$el.find(selector);
         };

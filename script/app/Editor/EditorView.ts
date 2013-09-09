@@ -2,18 +2,21 @@
 
 import View = require('system/View');
 
-class EditorWindow extends View{
+class EditorView extends View{
 
   private codeMirror:any;
+  private type:string;
 
-  constructor(text, type){
+  constructor(text:string, type){
+    this.type = type;
     super(text);
-    this.codeMirror =  CodeMirror($('.viewport')[0],{mode: type, lineNumbers: true});
   }
 
-  public focus():void{
-
+  public render():JQuery{
+    var el = super.render();
+    this.codeMirror =  CodeMirror(this.$('.viewport')[0], {mode: this.type, lineNumbers: true});
     this.codeMirror.focus();
+    return el;
   }
 
   public update(text:string):void{
@@ -30,4 +33,4 @@ class EditorWindow extends View{
   }
 }
 
-export = EditorWindow;
+export = EditorView;

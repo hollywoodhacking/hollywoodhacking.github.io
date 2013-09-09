@@ -8,31 +8,34 @@ var __extends = this.__extends || function (d, b) {
 define(["require", "exports", 'system/View'], function(require, exports, __View__) {
     var View = __View__;
 
-    var EditorWindow = (function (_super) {
-        __extends(EditorWindow, _super);
-        function EditorWindow(text, type) {
+    var EditorView = (function (_super) {
+        __extends(EditorView, _super);
+        function EditorView(text, type) {
+            this.type = type;
             _super.call(this, text);
-            this.codeMirror = CodeMirror($('.viewport')[0], { mode: type, lineNumbers: true });
         }
-        EditorWindow.prototype.focus = function () {
+        EditorView.prototype.render = function () {
+            var el = _super.prototype.render.call(this);
+            this.codeMirror = CodeMirror(this.$('.viewport')[0], { mode: this.type, lineNumbers: true });
             this.codeMirror.focus();
+            return el;
         };
 
-        EditorWindow.prototype.update = function (text) {
+        EditorView.prototype.update = function (text) {
             this.codeMirror.setValue(text);
             this.codeMirror.setCursor({ line: text.length, ch: text.length });
 
             this.updateStatusBar();
         };
 
-        EditorWindow.prototype.updateStatusBar = function () {
+        EditorView.prototype.updateStatusBar = function () {
             var cursor = this.codeMirror.getCursor();
             this.$('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
         };
-        return EditorWindow;
+        return EditorView;
     })(View);
 
     
-    return EditorWindow;
+    return EditorView;
 });
-//# sourceMappingURL=EditorWindow.js.map
+//# sourceMappingURL=EditorView.js.map

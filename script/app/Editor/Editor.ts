@@ -2,24 +2,34 @@
 
 import SourceFile = require('Editor/SourceFile');
 import Typer = require('Editor/Typer');
-import EditorWindow = require('Editor/EditorWindow');
+import EditorView = require('Editor/EditorView');
+import EditorHtml = require('Editor/Editor.html');
 
 class Editor{
   private filepath:string;
   private typer:Typer;
   private sourceFile:SourceFile;
-  private editorWindow:EditorWindow;
+  private editorView:EditorView;
 
   constructor(file, type){
+    var template = EditorHtml.get();
     this.filepath = file;
     this.typer = new Typer();
     this.sourceFile = new SourceFile(this.typer);
-    this.editorWindow = new EditorWindow('#panel', type);
+    this.editorView = new EditorView(template, type);
   }
 
   public init():void{
-    this.editorWindow.focus();
+
+    var el = this.editorView.render();
+
+    this.sourceFile.addListener('load', function(){
+      this.update('');
+    }, this.editorView);
+
     this.sourceFile.load(this.filepath);
+
+    $('#stage').append(el);
   }
 
   public update(event):void{
@@ -32,7 +42,7 @@ class Editor{
 
     var text = this.typer.getText();
 
-    this.editorWindow.update(text);
+    this.editorView.update(text);
   }
 
 }

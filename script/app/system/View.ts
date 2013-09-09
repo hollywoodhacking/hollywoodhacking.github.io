@@ -9,6 +9,11 @@ class View {
     this.$el = $(text);
   }
 
+  public render():JQuery{
+
+    return this.$el;
+  }
+
   public $(selector:string):JQuery{
 
     return this.$el.find(selector);
