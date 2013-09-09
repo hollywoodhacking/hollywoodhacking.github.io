@@ -1,0 +1,8 @@
+
+class ViewAbstract {
+
+
+
+}
+
+export = ViewAbstract;
