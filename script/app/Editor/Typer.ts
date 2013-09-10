@@ -19,7 +19,7 @@ class Typer {
       this.typedText += this.getNextCharacter();
       this.index++;
 
-      if(this.typedText.charAt(this.index - 1) === '\t'){
+      if(this.getCurrentCharacter() === '\t'){
         this.typeSingleLetter();
       }
     }
@@ -37,7 +37,7 @@ class Typer {
     if(this.atEndOfWord()){
       do{
         this.typeSingleLetter();
-      }while(!/\n/.test(this.getNextCharacter()))
+      }while(!/\n/.test(this.getCurrentCharacter()))
     }
   }
 
@@ -58,6 +58,10 @@ class Typer {
 
   private getNextCharacter():string{
     return this.fullText.charAt(this.index);
+  }
+
+  private getCurrentCharacter():string{
+    return this.typedText.charAt(this.index -1);
   }
 
 }

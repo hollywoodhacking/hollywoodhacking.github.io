@@ -25,11 +25,23 @@ define(["require", "exports", 'Editor/SourceFile', 'Editor/Typer', 'Editor/Edito
             $('#stage').append(el);
         };
 
-        Editor.prototype.update = function (event) {
-            if (event.keyCode != 8) {
-                this.typer.typeSingleLetter();
-            } else {
-                this.typer.backspace();
+        Editor.prototype.update = function (key) {
+            switch (key) {
+                case 8:
+                    this.typer.backspace();
+                    break;
+                case 9:
+                    this.typer.typeFullWord();
+                    break;
+                case 13:
+                    this.typer.typeFullLine();
+                case 16:
+                case 17:
+                case 18:
+                    break;
+                default:
+                    this.typer.typeSingleLetter();
+                    break;
             }
 
             var text = this.typer.getText();

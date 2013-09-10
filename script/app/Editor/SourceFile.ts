@@ -13,12 +13,13 @@ class SourceFile extends EventType{
 
   public load (path:string){
 
-    $.get(path,_(function(data){
+    $.get(path, _(this.initialiseTyper).bind(this));
+  }
+
+  private initialiseTyper(data:string){
 
       this.typer.setText(data);
       this.trigger('load');
-
-    }).bind(this));
   }
 }
 

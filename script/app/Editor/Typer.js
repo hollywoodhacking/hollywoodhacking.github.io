@@ -16,7 +16,7 @@ define(["require", "exports"], function(require, exports) {
                 this.typedText += this.getNextCharacter();
                 this.index++;
 
-                if (this.typedText.charAt(this.index - 1) === '\t') {
+                if (this.getCurrentCharacter() === '\t') {
                     this.typeSingleLetter();
                 }
             }
@@ -34,7 +34,7 @@ define(["require", "exports"], function(require, exports) {
             if (this.atEndOfWord()) {
                 do {
                     this.typeSingleLetter();
-                } while(!/\n/.test(this.getNextCharacter()));
+                } while(!/\n/.test(this.getCurrentCharacter()));
             }
         };
 
@@ -55,6 +55,10 @@ define(["require", "exports"], function(require, exports) {
 
         Typer.prototype.getNextCharacter = function () {
             return this.fullText.charAt(this.index);
+        };
+
+        Typer.prototype.getCurrentCharacter = function () {
+            return this.typedText.charAt(this.index - 1);
         };
         return Typer;
     })();

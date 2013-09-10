@@ -16,10 +16,12 @@ define(["require", "exports", 'Editor/Typer', 'system/EventType'], function(requ
             this.typer = typer;
         }
         SourceFile.prototype.load = function (path) {
-            $.get(path, _(function (data) {
-                this.typer.setText(data);
-                this.trigger('load');
-            }).bind(this));
+            $.get(path, _(this.initialiseTyper).bind(this));
+        };
+
+        SourceFile.prototype.initialiseTyper = function (data) {
+            this.typer.setText(data);
+            this.trigger('load');
         };
         return SourceFile;
     })(EventType);

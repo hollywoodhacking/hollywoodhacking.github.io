@@ -47,12 +47,12 @@ define(["require", "exports", 'Editor/Typer'], function(require, exports, __Type
             expect(typer.getText()).toBe('This');
         });
 
-        it('should return up to the end of the line when using typeFullLine', function () {
+        it('should return up to beginning of the next line when using typeFullLine', function () {
             typer.setText('This is a full line\nThis is the second line');
 
             typer.typeFullLine();
 
-            expect(typer.getText()).toBe('This is a full line');
+            expect(typer.getText()).toBe('This is a full line\n');
         });
     });
 });

@@ -33,12 +33,24 @@ class Editor{
     $('#stage').append(el);
   }
 
-  public update(event):void{
+  public update(key):void{
 
-    if(event.keyCode!=8){ // backspace
-      this.typer.typeSingleLetter();
-    }else{
-      this.typer.backspace();
+    switch(key){
+      case 8:
+        this.typer.backspace();
+        break;
+      case 9:
+        this.typer.typeFullWord();
+        break;
+      case 13:
+        this.typer.typeFullLine();
+      case 16:
+      case 17:
+      case 18:
+        break;
+      default:
+        this.typer.typeSingleLetter();
+        break;
     }
 
     var text = this.typer.getText();

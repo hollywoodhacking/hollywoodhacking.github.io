@@ -13,13 +13,13 @@ define(["require", "exports", 'Editor/Editor'], function(require, exports, __Edi
         };
 
         App.prototype.keydown = function (event) {
-            this.editor.update(event);
+            this.editor.update(event.which);
 
             this.preventDefaults(event);
         };
 
         App.prototype.preventDefaults = function (event) {
-            if (event.keyCode != 122) {
+            if (event.which != 122) {
                 if (event.preventDefault) {
                     event.preventDefault();
                 }

@@ -18,14 +18,14 @@ class App{
 
   private keydown(event):void{
 
-    this.editor.update(event);
+    this.editor.update(event.which);
 
     this.preventDefaults(event);
   }
 
   private preventDefaults(event):void{
     // let F11 pass through but capture all other keys
-    if(event.keyCode != 122){
+    if(event.which != 122){
       if(event.preventDefault){
         event.preventDefault()
       }
