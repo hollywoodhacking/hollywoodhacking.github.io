@@ -9,6 +9,10 @@ define(["require", "exports"], function(require, exports) {
             return this.$el;
         };
 
+        View.prototype.remove = function () {
+            this.$el.remove();
+        };
+
         View.prototype.$ = function (selector) {
             return this.$el.find(selector);
         };

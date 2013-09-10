@@ -1,36 +1,62 @@
 /// <reference path="AppDefinitions.d.ts"/>
 
-import Editor = require('Editor/Editor');
+import EditorFactory = require('Editor/EditorFactory');
+import EditorPresenter = require('Editor/EditorPresenter');
+import EditorLoader = require('Editor/Loader');
 
 class App{
 
-  private editor:Editor;
+  private editorFactory:EditorFactory;
+  private editorPresenter:EditorPresenter;
 
   constructor(){
-    this.editor = new Editor('static/js.txt', 'javascript');
+
+    this.editorFactory = EditorFactory.create();
   }
 
   public init():void{
     $( document ).keydown( _(this.keydown).bind(this) );
 
-    this.editor.init();
+    var editorLoader = new EditorLoader();
+    var editorView = this.editorFactory.createEditorView('javascript');
+
+    editorLoader.addListener('load', (data:string)=>{
+
+      this.editorPresenter = this.editorFactory.createEditorPresenter(data);
+      this.editorPresenter.attachView(editorView);
+    }, this);
+
+    var element = editorView.render();
+
+    $('#stage').append(element);
+
+    editorLoader.load('static/js.txt');
+
   }
 
-  private keydown(event):void{
+  private keydown(event:JQueryEventObject):boolean{
+    switch(event.which){
 
-    this.editor.update(event.which);
+      case 116:
+          //load new code with F5
+        break;
+      case 122:
+        return true; // let F11 pass through
+      default:
+        this.editorPresenter.update(event.which);
+        break;
+    }
 
     this.preventDefaults(event);
+    return false;
   }
 
-  private preventDefaults(event):void{
-    // let F11 pass through but capture all other keys
-    if(event.which != 122){
-      if(event.preventDefault){
-        event.preventDefault()
-      }
-      event.returnValue = false;
+  private preventDefaults(event:JQueryEventObject):boolean{
+    if(event.preventDefault){
+      event.preventDefault()
     }
+
+    return false;
   }
 
 

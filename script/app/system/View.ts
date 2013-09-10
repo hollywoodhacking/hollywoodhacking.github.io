@@ -16,6 +16,10 @@ class View {
     return this.$el;
   }
 
+  public remove():void{
+    this.$el.remove();
+  }
+
   public $(selector:string):JQuery{
 
     return this.$el.find(selector);
