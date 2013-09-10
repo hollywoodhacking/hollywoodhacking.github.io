@@ -26,8 +26,7 @@ class Typer {
 	public backspace():void{
 		if(this.index>0){
 			this.index--;
-
-      this.typedText = this.typedText.substring(0, this.index);
+            this.typedText = this.typedText.substring(0, this.index);
 		}
 	}
 

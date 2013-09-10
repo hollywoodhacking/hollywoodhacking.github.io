@@ -12,6 +12,7 @@ class Editor{
   private editorView:EditorView;
 
   constructor(file, type){
+
     var template = EditorHtml.get();
     this.filepath = file;
     this.typer = new Typer();
@@ -41,7 +42,6 @@ class Editor{
     }
 
     var text = this.typer.getText();
-
     this.editorView.update(text);
   }
 

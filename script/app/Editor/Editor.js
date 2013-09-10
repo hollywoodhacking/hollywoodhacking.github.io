@@ -33,7 +33,6 @@ define(["require", "exports", 'Editor/SourceFile', 'Editor/Typer', 'Editor/Edito
             }
 
             var text = this.typer.getText();
-
             this.editorView.update(text);
         };
         return Editor;

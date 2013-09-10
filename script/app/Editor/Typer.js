@@ -25,7 +25,6 @@ define(["require", "exports"], function(require, exports) {
         Typer.prototype.backspace = function () {
             if (this.index > 0) {
                 this.index--;
-
                 this.typedText = this.typedText.substring(0, this.index);
             }
         };

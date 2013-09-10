@@ -36,7 +36,8 @@ class EditorView extends View{
   }
 
   private clickHandle():void{
-    alert('yo!');
+
+      alert('yo!');
   }
 }
 
