@@ -52,6 +52,16 @@ describe('Typer', ():void =>{
         expect(typer.getText()).toBe('This');
     });
 
+    it('should return up to the end of the word for dot delimited code structures', ():void=>{
+
+      typer.setText('this.is.a.code.sentence');
+
+      typer.typeFullWord();
+      typer.typeFullWord();
+
+      expect(typer.getText()).toBe('this.is');
+    });
+
     it('should return up to beginning of the next line when using typeFullLine', ():void=>{
         typer.setText('This is a full line\nThis is the second line');
 

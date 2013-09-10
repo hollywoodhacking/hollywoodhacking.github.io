@@ -15,7 +15,7 @@ class Typer {
 
   public typeSingleLetter():void{
 
-    if(this.atEndOfWord()){
+    if(this.notAtEndOfWord()){
       this.typedText += this.getNextCharacter();
       this.index++;
 
@@ -26,18 +26,18 @@ class Typer {
   }
 
   public typeFullWord():void{
-    if(this.atEndOfWord()){
+    if(this.notAtEndOfWord()){
       do{
         this.typeSingleLetter();
-      }while(!/[\s\t\b\n\r]/.test(this.getNextCharacter()))
+      }while(!/[\s\t\b\n\r\.,:\(\)\{\}]/.test(this.getNextCharacter()) && this.notAtEndOfWord())
     }
   }
 
   public typeFullLine():void{
-    if(this.atEndOfWord()){
+    if(this.notAtEndOfWord()){
       do{
         this.typeSingleLetter();
-      }while(!/\n/.test(this.getCurrentCharacter()))
+      }while(!/\n/.test(this.getCurrentCharacter()) && this.notAtEndOfWord())
     }
   }
 
@@ -52,7 +52,7 @@ class Typer {
     return this.typedText;
   }
 
-  private atEndOfWord():boolean{
+  private notAtEndOfWord():boolean{
     return this.typedText.length < this.fullText.length;
   }
 

@@ -47,6 +47,15 @@ define(["require", "exports", 'Editor/Typer'], function(require, exports, __Type
             expect(typer.getText()).toBe('This');
         });
 
+        it('should return up to the end of the word for dot delimited code structures', function () {
+            typer.setText('this.is.a.code.sentence');
+
+            typer.typeFullWord();
+            typer.typeFullWord();
+
+            expect(typer.getText()).toBe('this.is');
+        });
+
         it('should return up to beginning of the next line when using typeFullLine', function () {
             typer.setText('This is a full line\nThis is the second line');
 
