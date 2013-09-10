@@ -7,7 +7,6 @@ for (var file in window.__karma__.files) {
     }
 }
 
-tests.push('base/bower_components/underscore/underscore.js');
 
 requirejs.config({
     baseUrl: 'base/script/app/',

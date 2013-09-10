@@ -66,7 +66,6 @@ define(["require", "exports", 'system/EventType'], function(require, exports, __
                 eventType.addListener('ev', triggeredTrue, eventType);
 
                 eventType.removeAllListeners();
-
                 eventType.trigger('ev');
 
                 expect(triggered).toBe(false);

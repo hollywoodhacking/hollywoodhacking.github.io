@@ -12,13 +12,29 @@ define(["require", "exports"], function(require, exports) {
         };
 
         Typer.prototype.typeSingleLetter = function () {
-            if (this.typedText.length < this.fullText.length) {
-                this.typedText += this.fullText.charAt(this.index);
+            if (this.atEndOfWord()) {
+                this.typedText += this.getNextCharacter();
                 this.index++;
 
-                if (this.typedText[(this.index - 1)] === '\t') {
+                if (this.typedText.charAt(this.index - 1) === '\t') {
                     this.typeSingleLetter();
                 }
+            }
+        };
+
+        Typer.prototype.typeFullWord = function () {
+            if (this.atEndOfWord()) {
+                do {
+                    this.typeSingleLetter();
+                } while(!/[\s\t\b\n\r]/.test(this.getNextCharacter()));
+            }
+        };
+
+        Typer.prototype.typeFullLine = function () {
+            if (this.atEndOfWord()) {
+                do {
+                    this.typeSingleLetter();
+                } while(!/\n/.test(this.getNextCharacter()));
             }
         };
 
@@ -31,6 +47,14 @@ define(["require", "exports"], function(require, exports) {
 
         Typer.prototype.getText = function () {
             return this.typedText;
+        };
+
+        Typer.prototype.atEndOfWord = function () {
+            return this.typedText.length < this.fullText.length;
+        };
+
+        Typer.prototype.getNextCharacter = function () {
+            return this.fullText.charAt(this.index);
         };
         return Typer;
     })();

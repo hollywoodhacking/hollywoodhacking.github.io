@@ -11,28 +11,54 @@ class Typer {
     this.index = 0;
   }
 
-	public typeSingleLetter():void{
 
-    if(this.typedText.length < this.fullText.length){
-      this.typedText += this.fullText.charAt(this.index);
+
+  public typeSingleLetter():void{
+
+    if(this.atEndOfWord()){
+      this.typedText += this.getNextCharacter();
       this.index++;
 
-      if(this.typedText[(this.index - 1)] === '\t'){
+      if(this.typedText.charAt(this.index - 1) === '\t'){
         this.typeSingleLetter();
       }
     }
-	}
+  }
 
-	public backspace():void{
-		if(this.index>0){
-			this.index--;
-            this.typedText = this.typedText.substring(0, this.index);
-		}
-	}
+  public typeFullWord():void{
+    if(this.atEndOfWord()){
+      do{
+        this.typeSingleLetter();
+      }while(!/[\s\t\b\n\r]/.test(this.getNextCharacter()))
+    }
+  }
 
-	public getText():string{
-		return this.typedText;
-	}
+  public typeFullLine():void{
+    if(this.atEndOfWord()){
+      do{
+        this.typeSingleLetter();
+      }while(!/\n/.test(this.getNextCharacter()))
+    }
+  }
+
+  public backspace():void{
+    if(this.index>0){
+      this.index--;
+      this.typedText = this.typedText.substring(0, this.index);
+    }
+  }
+
+  public getText():string{
+    return this.typedText;
+  }
+
+  private atEndOfWord():boolean{
+    return this.typedText.length < this.fullText.length;
+  }
+
+  private getNextCharacter():string{
+    return this.fullText.charAt(this.index);
+  }
 
 }
 

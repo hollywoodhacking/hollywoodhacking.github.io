@@ -69,7 +69,6 @@ describe('EventType abstract : ', () => {
             eventType.addListener('ev', triggeredTrue, eventType);
 
             eventType.removeAllListeners();
-
             eventType.trigger('ev');
 
             expect(triggered).toBe(false);
