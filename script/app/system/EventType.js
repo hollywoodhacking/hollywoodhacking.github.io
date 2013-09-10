@@ -14,7 +14,7 @@ define(["require", "exports"], function(require, exports) {
 
         EventType.prototype.removeListener = function (event, listener) {
             if (this.eventStored(event)) {
-                _(this.eventHash).forEach(function (record) {
+                _(this.eventHash[event]).forEach(function (record) {
                     if (listener === record.listener) {
                         record.listener = function () {
                         };

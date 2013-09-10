@@ -22,10 +22,10 @@ class EventType {
   public removeListener(event, listener: (sender: Object) => void ): void{
 
     if(this.eventStored(event)){
-      _(this.eventHash).forEach(function(record:EventRecord){
+      _(this.eventHash[event]).forEach((record:EventRecord)=>{
         if(listener === record.listener){
 
-          record.listener = function(){};
+          record.listener = ()=>{};
           record.context = null;
         }
       });
@@ -36,7 +36,7 @@ class EventType {
 
     if(this.eventStored(event)){
 
-      _(this.eventHash[event]).forEach(function(record:EventRecord){
+      _(this.eventHash[event]).forEach((record:EventRecord)=>{
 
           record.listener.apply(record.context, args);
       });
