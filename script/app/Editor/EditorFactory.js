@@ -22,10 +22,8 @@ define(["require", "exports", 'Editor/EditorPresenter', 'Editor/EditorView', 'Ed
             return new EditorView(template, type);
         };
 
-        EditorFactory.prototype.createEditorPresenter = function (text) {
+        EditorFactory.prototype.createEditorPresenter = function () {
             var typer = new Typer();
-            typer.setText(text);
-
             return new EditorPresenter(typer);
         };
         return EditorFactory;

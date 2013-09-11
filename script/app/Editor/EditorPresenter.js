@@ -7,9 +7,8 @@ define(["require", "exports", 'Editor/Typer', 'Editor/EditorView'], function(req
         function EditorPresenter(typer) {
             this.typer = typer;
         }
-        EditorPresenter.prototype.attachView = function (view) {
-            this.editorView = view;
-            this.updateView();
+        EditorPresenter.prototype.setText = function (text) {
+            this.typer.setText(text);
         };
 
         EditorPresenter.prototype.update = function (key) {
@@ -31,6 +30,11 @@ define(["require", "exports", 'Editor/Typer', 'Editor/EditorView'], function(req
                     break;
             }
 
+            this.updateView();
+        };
+
+        EditorPresenter.prototype.attachView = function (view) {
+            this.editorView = view;
             this.updateView();
         };
 

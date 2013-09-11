@@ -12,12 +12,11 @@ class EditorPresenter{
     this.typer = typer;
   }
 
-  public attachView(view:EditorView){
-    this.editorView = view;
-    this.updateView();
+  public setText(text:string):void{
+    this.typer.setText(text);
   }
 
-  public update(key):void{
+  public update(key:number):void{
 
     switch(key){
       case 8:
@@ -39,6 +38,11 @@ class EditorPresenter{
 
     this.updateView();
 
+  }
+
+  public attachView(view:EditorView){
+    this.editorView = view;
+    this.updateView();
   }
 
   private updateView():void{

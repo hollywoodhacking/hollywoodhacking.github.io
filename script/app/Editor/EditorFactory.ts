@@ -26,11 +26,9 @@ class EditorFactory{
     return new EditorView(template, type);
   }
 
-  public createEditorPresenter (text:string):EditorPresenter{
+  public createEditorPresenter ():EditorPresenter{
 
     var typer = new Typer();
-    typer.setText(text);
-
     return new EditorPresenter(typer);
   }
 }
