@@ -1,4 +1,7 @@
-##License 
+Hollywood Hacking
+<img src="https://travis-ci.org/benbrunton/Hacker-Typer.png?branch=master"/>
+
+##License
 
 
 Adapted from Hacker-Typer by Simone Masiero https://github.com/duiker101/Hacker-Typer
