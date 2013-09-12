@@ -2,3 +2,4 @@
 
 echo "setting up Hollywood Hacking"
 npm install bower
+bower install
