@@ -1,3 +1,8 @@
  language: node_js
  script: "deploy/test.sh"
  before_script: "deploy/setup.sh"
+ after_success:
+   - chmod 600 .travis/deploy_key.pem
+   - ssh-add .travis/deploy_key.pem
+   - git remote add deploy git@github.com:benbrunton/benbrunton.github.io.git
+   - git push deploy
