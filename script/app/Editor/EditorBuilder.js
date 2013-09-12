@@ -36,7 +36,9 @@ define(["require", "exports", 'AppView', 'system/View', 'Editor/EditorFactory', 
         EditorBuilder.prototype.getRandomEditor = function () {
             var sourceList = [
                 { path: 'static/js.txt', type: 'javascript' },
-                { path: 'static/kernel.txt', type: 'text/x-csrc' }
+                { path: 'static/kernel.txt', type: 'text/x-csrc' },
+                { path: 'static/eve.py.txt', type: 'text/x-python' },
+                { path: 'static/Optimizer.hs.txt', type: 'text/x-haskell' }
             ];
 
             var item = ArrayHelpers.getRandomItem(sourceList);
