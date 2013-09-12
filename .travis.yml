@@ -3,10 +3,11 @@
  before_script: "deploy/setup.sh"
  after_success:
    - rm .gitignore
+   - sudo apt-get install tree --assume-yes
    - git add .
-   - git commit -m "travis build $TRAVIS_BUILD_NUMBER"
+   - git commit -m "travis build ""$TRAVIS_BUILD_NUMBER"
    - chmod 600 .travis/deploy_key.pem
    - ssh-add .travis/deploy_key.pem
    - git remote add deploy git@github.com:benbrunton/benbrunton.github.io.git
-   - git push deploy master
-   - yes
+   - tree -a
+   - git push --force deploy master
