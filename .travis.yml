@@ -10,5 +10,5 @@ after_success:
 - rm .gitignore
 - git add .
 - git commit -m "travis build ""$TRAVIS_BUILD_NUMBER"
-- git remote add deploy git@github.com:benbrunton/benbrunton.github.io.git
+- git remote add deploy https://github.com/benbrunton/benbrunton.github.io.git
 - git push deploy master
