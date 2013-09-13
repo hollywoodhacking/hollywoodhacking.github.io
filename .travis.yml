@@ -1,9 +1,14 @@
- language: node_js
- script: "deploy/test.sh"
- before_script: "deploy/setup.sh"
- after_success:
-   - rm .gitignore
-   - git add .
-   - git commit -m "travis build ""$TRAVIS_BUILD_NUMBER"
-   - git remote add deploy git@github.com:benbrunton/benbrunton.github.io.git
-   - git push deploy master
+language: node_js
+script: deploy/test.sh
+env:
+  global:
+    secure: R/Ac9UqxMwQBHWTumJzkPFI/oWO9M+KmNsMn0XKlF3ZDLjf3W5aQdYLlUrIS831fq77cRQiTpRZTmCnLRxe7t4qbNggrxIPMbR8PPmlp4/gwg9Y55lWcrXfwLGaeuRVTz44XMeJPRtSjBvLgGYeBJLBOePsWQJuBsDO/1Aam1dw=
+before_script: deploy/setup.sh
+after_success:
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- rm .gitignore
+- git add .
+- git commit -m "travis build ""$TRAVIS_BUILD_NUMBER"
+- git remote add deploy git@github.com:benbrunton/benbrunton.github.io.git
+- git push deploy master
