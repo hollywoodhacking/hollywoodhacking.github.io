@@ -1,7 +1,6 @@
 language: node_js
 script: deploy/test.sh
 env:
-  global:
-    secure: tFjdZGeJlJNFcZTWa/EnO6wcpg8u3msEPS8F3XgY4i5TB/491mZGx7tcKd5J/MfpHTsYqyjFdJf+RaN0psY7nAdBfoR0kQCAsUi0gLEqB3NpLs4WxDoKzxTAathedkNvDu3umwTHDBIMZzLKV4XHTGdqq08Yulv/igE2r2rbQas=
+  - secure: tFjdZGeJlJNFcZTWa/EnO6wcpg8u3msEPS8F3XgY4i5TB/491mZGx7tcKd5J/MfpHTsYqyjFdJf+RaN0psY7nAdBfoR0kQCAsUi0gLEqB3NpLs4WxDoKzxTAathedkNvDu3umwTHDBIMZzLKV4XHTGdqq08Yulv/igE2r2rbQas=
 before_script: deploy/setup.sh
 after_success: deploy/deploy.sh
