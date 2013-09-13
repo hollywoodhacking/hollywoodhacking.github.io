@@ -66,3 +66,4 @@ define(["require", "exports"], function(require, exports) {
     
     return Typer;
 });
+//# sourceMappingURL=Typer.js.map

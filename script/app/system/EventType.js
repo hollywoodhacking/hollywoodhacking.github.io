@@ -49,3 +49,4 @@ define(["require", "exports"], function(require, exports) {
     
     return EventType;
 });
+//# sourceMappingURL=EventType.js.map

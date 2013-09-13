@@ -45,3 +45,4 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
     
     return EditorView;
 });
+//# sourceMappingURL=EditorView.js.map

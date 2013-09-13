@@ -32,3 +32,4 @@ define(["require", "exports", 'Editor/EditorPresenter', 'Editor/EditorView', 'Ed
     
     return EditorFactory;
 });
+//# sourceMappingURL=EditorFactory.js.map
