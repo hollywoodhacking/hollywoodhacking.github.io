@@ -6,4 +6,3 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
     describe('View : ', function () {
     });
 });
-//# sourceMappingURL=View.test.js.map

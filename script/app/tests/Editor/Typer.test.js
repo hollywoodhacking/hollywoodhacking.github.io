@@ -65,4 +65,3 @@ define(["require", "exports", 'Editor/Typer'], function(require, exports, __Type
         });
     });
 });
-//# sourceMappingURL=Typer.test.js.map

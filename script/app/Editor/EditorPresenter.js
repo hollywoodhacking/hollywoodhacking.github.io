@@ -48,4 +48,3 @@ define(["require", "exports", 'Editor/Typer', 'Editor/EditorView'], function(req
     
     return EditorPresenter;
 });
-//# sourceMappingURL=EditorPresenter.js.map

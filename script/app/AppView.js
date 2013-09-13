@@ -29,4 +29,3 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
     
     return AppView;
 });
-//# sourceMappingURL=AppView.js.map

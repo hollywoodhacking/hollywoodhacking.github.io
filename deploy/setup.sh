@@ -7,6 +7,7 @@ npm install -g typescript
 bower install
 
 cd script/app/
-find **/*.ts > ts-files.txt
-tsc @ts-files.txt --module amd
+echo "--module amd" > ts-files.txt
+find **/*.ts >> ts-files.txt
+tsc @ts-files.txt
 rm ts-files.txt

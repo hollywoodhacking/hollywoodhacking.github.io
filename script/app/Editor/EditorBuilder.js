@@ -62,4 +62,3 @@ define(["require", "exports", 'AppView', 'system/View', 'Editor/EditorFactory', 
     
     return EditorBuilder;
 });
-//# sourceMappingURL=EditorBuilder.js.map
