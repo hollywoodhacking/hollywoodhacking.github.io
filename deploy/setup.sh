@@ -7,6 +7,6 @@ npm install typescript
 bower install
 
 cd script/app/
-dir *.ts /b /s > ts-files.txt
+find **/*.ts > ts-files.txt
 tsc @ts-files.txt --module amd
 del ts-files.txt
