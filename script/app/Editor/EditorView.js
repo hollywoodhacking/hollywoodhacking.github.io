@@ -33,7 +33,7 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
 
         EditorView.prototype.updateStatusBar = function () {
             var cursor = this.codeMirror.getCursor();
-            this.$('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
+            this.$('.statusbar').html('Line ' + (cursor.line + 1) + ', Column ' + cursor.ch);
         };
 
         EditorView.prototype.clickHandle = function () {

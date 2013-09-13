@@ -32,7 +32,7 @@ class EditorView extends View{
 
   private updateStatusBar():void{
     var cursor = this.codeMirror.getCursor();
-    this.$('.statusbar').html('Line ' + cursor.line + ', Column ' + cursor.ch);
+    this.$('.statusbar').html('Line ' + (cursor.line + 1) + ', Column ' + cursor.ch);
   }
 
   private clickHandle():void{
