@@ -7,5 +7,8 @@ git config user.name $GH_TOKEN
 rm .gitignore
 git add . --all
 git commit -m "travis build ${TRAVIS_BUILD_NUMBER}"
+git branch temp
+git checkout temp
+git checkout -B master temp
 git remote add deploy https://github.com/benbrunton/benbrunton.github.io.git
 git push --force deploy master
