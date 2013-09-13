@@ -8,4 +8,4 @@ rm .gitignore
 git add -A .
 git commit -m "travis build ${TRAVIS_BUILD_NUMBER}"
 git remote add deploy https://github.com/benbrunton/benbrunton.github.io.git
-git push deploy master
+git push --force deploy master
