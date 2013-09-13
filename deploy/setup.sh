@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "setting up Hollywood Hacking - build # ""$TRAVIS_BUILD_NUMBER""\n"
 
