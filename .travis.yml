@@ -6,4 +6,4 @@
    - git add .
    - git commit -m "travis build ""$TRAVIS_BUILD_NUMBER"
    - git remote add deploy git@github.com:benbrunton/benbrunton.github.io.git
-   - git push --force deploy master
+   - git pull deploy master
