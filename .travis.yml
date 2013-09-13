@@ -4,13 +4,4 @@ env:
   global:
   - secure: aepWz0ZqmurBWI0jIPW5pn/azZKmV04uqPLJm3NnfKGOWfL8vqg1QaOj06mD1Z+H92zQmmagQ/p0l4TcNPJ+V15qsUpmDU4PTYmvq6PdvRedmqXE0KLilSN/v80gjWskV8wJcagSQJop0E9lCFpZvmC/azsNXyNnCQaBmjNbf+s=
 before_script: deploy/setup.sh
-after_success:
-- git config credential.helper "store --file=.git/credentials"
-- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-- git config --global user.email "travis@travis-ci.org"
-- git config --global user.name "Travis"
-- rm .gitignore
-- git add -A .
-- git commit -m "travis build ${TRAVIS_BUILD_NUMBER}"
-- git remote add deploy https://github.com/benbrunton/benbrunton.github.io.git
-- git push deploy master
+after_success: deploy/deploy.sh
