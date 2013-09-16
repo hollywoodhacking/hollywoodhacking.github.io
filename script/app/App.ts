@@ -4,15 +4,19 @@
 /// <reference path="system/ContainerView.d.ts"/>
 
 import EditorBuilder = require('Editor/EditorBuilder');
+import TerminalBuilder = require('Terminal/TerminalBuilder');
 
 class App{
-  private editorBuilder:EditorBuilder;
-  private editorPresenter:Presenter;
+  private builder:Builder;
+  private presenter:Presenter;
   private applicationView:ContainerView;
+
+  private mode:string;
 
   constructor(){
 
-    this.editorBuilder = EditorBuilder.create();
+    this.mode = 'editor';
+    this.builder = EditorBuilder.create();
   }
 
   public init(applicationView:ContainerView):void{
@@ -27,22 +31,37 @@ class App{
       case 116: //load new code with F5
         this.loadEditor();
         break;
+      case 117:
+        this.toggleMode();
+        break;
       default:
-        this.editorPresenter.update(key);
+        this.presenter.update(key);
         break;
     }
   }
 
   private loadEditor():void{
 
-    var editorPair:PresenterViewPair = this.editorBuilder.build();
+    var presenterViewPair:PresenterViewPair = this.builder.build();
 
-    this.editorPresenter = editorPair.presenter;
+    this.presenter = presenterViewPair.presenter;
 
-    this.applicationView.attachMainView(editorPair.view);
+    this.applicationView.attachMainView(presenterViewPair.view);
 
     // kick off application with a backspace
-    this.editorPresenter.update(8);
+    this.presenter.update(8);
+  }
+
+  private toggleMode():void{
+    if(this.mode === 'editor'){
+      this.mode = 'terminal';
+      this.builder = TerminalBuilder.create();
+    }else{
+      this.mode = 'editor';
+      this.builder = EditorBuilder.create();
+    }
+
+    this.loadEditor();
   }
 
 
