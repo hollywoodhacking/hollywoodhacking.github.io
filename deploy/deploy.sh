@@ -1,5 +1,6 @@
 #!/bin/sh
 
+deploy/minify.sh
 git config credential.helper "store --file=.git/credentials"
 echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 git config user.email "travis@travis-ci.org"
