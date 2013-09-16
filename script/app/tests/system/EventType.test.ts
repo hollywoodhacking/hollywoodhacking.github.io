@@ -1,15 +1,15 @@
 /// <reference path="../jasmine.d.ts" />
 
-import EventType = require('system/EventType');
+import AbstractEventType = require('system/AbstractEventType');
 
 describe('EventType abstract : ', () => {
 
     describe('add events : ', () => {
 
-        var eventType:EventType;
+        var eventType:AbstractEventType ;
 
         beforeEach(() => {
-            eventType = new EventType();
+            eventType = new AbstractEventType ();
         });
 
         it('should allow a client to listen to arbitrary events', () => {
