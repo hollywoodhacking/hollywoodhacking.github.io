@@ -1,4 +1,4 @@
-define(['App', 'AppView'],
+require(['App', 'AppView'],
   function(App, AppView){
 
     var appView = new AppView('body');
