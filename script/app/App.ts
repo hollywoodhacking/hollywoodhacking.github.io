@@ -28,10 +28,10 @@ class App{
   public keydown(key:number):void{
     switch(key){
 
-      case 116: //load new code with F5
+      case 116: // load new code with F5
         this.loadEditor();
         break;
-      case 117:
+      case 117: // toggle mode with F6
         this.toggleMode();
         break;
       default:
