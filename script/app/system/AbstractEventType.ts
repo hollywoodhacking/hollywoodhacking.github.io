@@ -6,7 +6,7 @@ interface EventRecord{
 }
 
 
-class EventType {
+class AbstractEventType {
 
   private eventHash = {};
 
@@ -54,4 +54,4 @@ class EventType {
   }
 }
 
-export = EventType;
+export = AbstractEventType;

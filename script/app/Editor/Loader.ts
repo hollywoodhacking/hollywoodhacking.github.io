@@ -1,8 +1,8 @@
 /// <reference path="../AppDefinitions.d.ts"/>
 
-import EventType = require('system/EventType');
+import AbstractEventType = require('system/AbstractEventType');
 
-class Loader extends EventType{
+class Loader extends AbstractEventType{
 
   constructor(){
     super();

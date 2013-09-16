@@ -26,6 +26,10 @@ class AbstractView implements  View{
     return this.$el.find(selector);
   }
 
+  public update(any):void{
+
+  }
+
   private delegateEvents():void{
     var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 

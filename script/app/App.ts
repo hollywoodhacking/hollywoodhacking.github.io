@@ -1,11 +1,11 @@
 /// <reference path="AppDefinitions.d.ts"/>
-/// <reference path="Editor/EditorPresenter.d.ts"/>
+/// <reference path="system/Presenter.d.ts"/>
 
 import EditorBuilder = require('Editor/EditorBuilder');
 import AppView = require('AppView');
 
 class App{
-  private editorPresenter:EditorPresenter;
+  private editorPresenter:Presenter;
   private editorBuilder:EditorBuilder;
   private applicationView:AppView;
 

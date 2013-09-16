@@ -2,5 +2,6 @@
 interface View {
     render(): JQuery;
     remove(): void;
+    update(any):void;
     $(selector: string): JQuery;
 }

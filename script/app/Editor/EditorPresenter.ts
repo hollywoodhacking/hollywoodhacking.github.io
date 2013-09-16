@@ -1,11 +1,12 @@
 /// <reference path="../AppDefinitions.d.ts"/>
+/// <reference path="../system/Presenter.d.ts"/>
+/// <reference path="../system/View.d.ts"/>
 
 import Typer = require('Editor/Typer');
-import EditorView = require('Editor/EditorView');
 
-class EditorPresenter{
+class EditorPresenter implements  Presenter{
   private typer:Typer;
-  private editorView:EditorView;
+  private editorView:View;
 
   constructor(typer:Typer){
 
@@ -40,7 +41,7 @@ class EditorPresenter{
 
   }
 
-  public attachView(view:EditorView){
+  public attachView(view:View){
     this.editorView = view;
     this.updateView();
   }

@@ -1,8 +1,9 @@
 /// <reference path="AppDefinitions.d.ts"/>
+/// <reference path="system/ContainerView.d.ts"/>
 
 import AbstractView = require('system/AbstractView');
 
-class AppView extends AbstractView {
+class AppView extends AbstractView implements ContainerView{
 
   private mainView:View;
 

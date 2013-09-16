@@ -1,12 +1,12 @@
 /// <reference path="../AppDefinitions.d.ts"/>
+/// <reference path="../system/View.d.ts"/>
+/// <reference path="../system/ContainerView.d.ts"/>
 
 interface sourceDescription{
   path:string;
   type:string;
 }
 
-import AppView = require('AppView');
-import View = require('system/View');
 import EditorFactory = require('Editor/EditorFactory');
 import EditorPresenter = require('Editor/EditorPresenter');
 import EditorLoader = require('Editor/Loader');
@@ -33,17 +33,17 @@ class EditorBuilder{
   }
 
 
-  public build(applicationView:AppView):EditorPresenter{
+  public build(applicationView:ContainerView):EditorPresenter{
 
     var editor = this.getRandomEditor();
-    var editorView = this.editorFactory.createEditorView(editor.type);
+    var editorView:View = this.editorFactory.createEditorView(editor.type);
 
     applicationView.attachMainView(editorView);
 
     this.editorPresenter = this.editorFactory.createEditorPresenter();
     this.editorPresenter.attachView(editorView);
 
-    this.loadEditor(editor.path, editor.type);
+    this.loadEditor(editor.path);
 
     return this.editorPresenter;
   }
@@ -63,7 +63,7 @@ class EditorBuilder{
   }
 
 
-  private loadEditor(path:string, type:string){
+  private loadEditor(path:string){
 
     var editorLoader = new EditorLoader();
 
