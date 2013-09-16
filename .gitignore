@@ -5,5 +5,5 @@
 
 bower_components/
 
-!script/app/bootstrap.js
+!script/app/main.js
 !script/third-party
