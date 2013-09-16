@@ -4,4 +4,3 @@ define(["require", "exports"], function(require, exports) {
     }
     exports.get = get;
 });
-//# sourceMappingURL=Editor.html.js.map

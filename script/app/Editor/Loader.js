@@ -26,4 +26,3 @@ define(["require", "exports", 'system/EventType'], function(require, exports, __
     
     return Loader;
 });
-//# sourceMappingURL=Loader.js.map
