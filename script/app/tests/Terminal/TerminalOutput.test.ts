@@ -53,6 +53,18 @@ describe('TerminalOutput', ()=>{
       expect(terminalOutput.getText()).toBe('line 3\n');
     });
 
+    it('returns \'\' when there is no text', ()=>{
+
+      expect(terminalOutput.getText()).toBe('');
+    });
+
+    it('returns %STOP when the output has finished', ()=>{
+      terminalOutput.setText('1');
+
+      terminalOutput.getText()
+      expect(terminalOutput.getText()).toBe('%STOP');
+    });
+
 
   });
 });

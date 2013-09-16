@@ -15,7 +15,11 @@ class TerminalOutput{
 
     var nextOutput;
 
-    if(this.isCurrentLineInput()){
+    if(typeof this.lines === 'undefined'){
+      nextOutput = '';
+    }else if(this.lineCount >= this.lines.length){
+      nextOutput = '%STOP';
+    }else if(this.isCurrentLineInput()){
       nextOutput = this.getNextLetter();
       this.charCount++;
 

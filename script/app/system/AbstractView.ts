@@ -51,6 +51,10 @@ class AbstractView implements  View{
     }
 
   }
+
+  public empty():void{
+    this.$el.empty();
+  }
 }
 
 export = AbstractView;

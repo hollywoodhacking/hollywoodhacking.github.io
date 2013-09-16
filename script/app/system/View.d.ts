@@ -4,4 +4,5 @@ interface View {
     remove(): void;
     update(any):void;
     $(selector: string): JQuery;
+    empty():void;
 }

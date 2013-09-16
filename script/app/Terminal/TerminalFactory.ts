@@ -29,12 +29,13 @@ class TerminalFactory{
 
   public createTerminalPresenter ():TerminalPresenter{
 
-    var terminalPresenter:TerminalPresenter = new TerminalPresenter();
-    var loader = new Loader();
     var terminalOutput:TerminalOutput = new TerminalOutput();
+    var terminalPresenter:TerminalPresenter = new TerminalPresenter(terminalOutput);
+    var loader = new Loader();
 
     loader.addListener('load', (data)=>{
       terminalOutput.setText(data);
+      terminalPresenter.start();
     });
 
     loader.load('static/terminal.txt');
