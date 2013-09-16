@@ -1,7 +1,9 @@
-.*/
-bower_components
 .idea/
-script/app/*.js
-script/app/*.js.map
-script/app/**/*.js
-script/app/**/*.js.map
+
+*.js
+*.js.map
+
+bower_components/
+
+!script/app/bootstrap.js
+!script/third-party

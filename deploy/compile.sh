@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 cd script/app/
 echo "--module amd" > ts-files.txt

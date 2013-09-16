@@ -1,7 +1,7 @@
 /// <reference path="../jasmine.d.ts" />
 /// <reference path="../../AppDefinitions.d.ts"/>
 
-import View = require('system/View');
+import AbstractView = require('system/AbstractView');
 
 describe('View : ', ()=>{
 
