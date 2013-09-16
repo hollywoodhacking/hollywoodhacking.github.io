@@ -10,7 +10,9 @@ pwd
 cd script/app/
 echo "--module amd" > ts-files.txt
 find **/*.ts >> ts-files.txt
+ls -a
 echo "begin typescript compilation"
 tsc @ts-files.txt
 rm ts-files.txt
+ls -a
 echo "typescript compilation complete"
