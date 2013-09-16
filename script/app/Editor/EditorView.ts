@@ -1,8 +1,8 @@
 /// <reference path="../AppDefinitions.d.ts"/>
 
-import View = require('system/View');
+import AbstractView = require('system/AbstractView');
 
-class EditorView extends View{
+class EditorView extends AbstractView{
 
   private codeMirror:any;
   private type:string;

@@ -1,6 +1,7 @@
 /// <reference path="../AppDefinitions.d.ts"/>
+/// <reference path="View.d.ts"/>
 
-class View {
+class AbstractView implements  View{
 
   private $el:JQuery;
   public events:{};
@@ -48,4 +49,4 @@ class View {
   }
 }
 
-export = View;
+export = AbstractView;

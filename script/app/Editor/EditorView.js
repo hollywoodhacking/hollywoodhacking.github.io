@@ -5,8 +5,8 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-define(["require", "exports", 'system/View'], function(require, exports, __View__) {
-    var View = __View__;
+define(["require", "exports", 'system/AbstractView'], function(require, exports, __AbstractView__) {
+    var AbstractView = __AbstractView__;
 
     var EditorView = (function (_super) {
         __extends(EditorView, _super);
@@ -40,8 +40,9 @@ define(["require", "exports", 'system/View'], function(require, exports, __View_
             alert('yo!');
         };
         return EditorView;
-    })(View);
+    })(AbstractView);
 
     
     return EditorView;
 });
+//# sourceMappingURL=EditorView.js.map

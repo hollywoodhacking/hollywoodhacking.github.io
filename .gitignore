@@ -1,3 +1,7 @@
 .*/
 bower_components
 .idea/
+script/app/*.js
+script/app/*.js.map
+script/app/**/*.js
+script/app/**/*.js.map

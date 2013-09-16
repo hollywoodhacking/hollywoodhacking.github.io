@@ -1,8 +1,8 @@
 /// <reference path="AppDefinitions.d.ts"/>
 
-import View = require('system/View');
+import AbstractView = require('system/AbstractView');
 
-class AppView extends View {
+class AppView extends AbstractView {
 
   private mainView:View;
 

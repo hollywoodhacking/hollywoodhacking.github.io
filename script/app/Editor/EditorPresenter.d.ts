@@ -1,13 +1,9 @@
 /// <reference path="../AppDefinitions.d.ts" />
-import Typer = require('Editor/Typer');
-import EditorView = require('Editor/EditorView');
-declare class EditorPresenter {
-    private typer;
-    private editorView;
-    constructor(typer: Typer);
-    public setText(text: string): void;
-    public update(key: number): void;
-    public attachView(view: EditorView): void;
-    private updateView();
+/// <reference path="../system/View.d.ts" />
+
+interface EditorPresenter {
+    setText(text: string): void;
+    update(key: number): void;
+    attachView(view: View): void;
+    updateView();
 }
-export = EditorPresenter;

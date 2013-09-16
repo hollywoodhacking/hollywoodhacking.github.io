@@ -1,6 +1,6 @@
 /// <reference path="AppDefinitions.d.ts"/>
+/// <reference path="Editor/EditorPresenter.d.ts"/>
 
-import EditorPresenter = require('Editor/EditorPresenter');
 import EditorBuilder = require('Editor/EditorBuilder');
 import AppView = require('AppView');
 
