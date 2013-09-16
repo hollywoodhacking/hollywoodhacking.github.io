@@ -6,9 +6,4 @@ npm install bower
 npm install -g typescript
 bower install
 
-pwd
-cd script/app/
-echo "--module amd" > ts-files.txt
-find *.ts **/*.ts >> ts-files.txt
-tsc @ts-files.txt
-rm ts-files.txt
+deploy/compile.sh
