@@ -57,7 +57,7 @@ class EditorBuilder implements Builder{
       {path: 'static/eve.py.txt', type:'text/x-python'},
       {path: 'static/Optimizer.hs.txt', type:'text/x-haskell'},
       {path: 'script/app/App.ts', type:'text/x-csharp'},
-      {path: 'script/java.txt, type:'text/java'}
+      {path: 'script/java.txt', type:'text/java'}
     ];
 
     var item = ArrayHelpers.getRandomItem(sourceList);
