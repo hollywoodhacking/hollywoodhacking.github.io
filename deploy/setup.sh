@@ -9,7 +9,7 @@ bower install
 pwd
 cd script/app/
 echo "--module amd" > ts-files.txt
-find **/*.ts >> ts-files.txt
+find *.ts **/*.ts >> ts-files.txt
 cat ts-files.txt
 echo "begin typescript compilation"
 tsc @ts-files.txt
