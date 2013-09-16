@@ -9,7 +9,7 @@ interface sourceDescription{
 
 import EditorFactory = require('Editor/EditorFactory');
 import EditorPresenter = require('Editor/EditorPresenter');
-import EditorLoader = require('Editor/Loader');
+import Loader = require('../system/Loader');
 import ArrayHelpers = require('system/Utils/ArrayHelpers')
 
 class EditorBuilder implements Builder{
@@ -57,7 +57,7 @@ class EditorBuilder implements Builder{
       {path: 'static/eve.py.txt', type:'text/x-python'},
       {path: 'static/Optimizer.hs.txt', type:'text/x-haskell'},
       {path: 'script/app/App.ts', type:'text/x-csharp'},
-      {path: 'static/java.txt', type:'text/java'}
+      {path: 'static/java.txt', type:'text/x-java'}
     ];
 
     var item = ArrayHelpers.getRandomItem(sourceList);
@@ -68,11 +68,11 @@ class EditorBuilder implements Builder{
 
   private loadEditor(path:string){
 
-    var editorLoader = new EditorLoader();
+    var editorLoader = new Loader();
 
     editorLoader.addListener('load', (data:string)=>{
       this.editorPresenter.setText(data);
-    }, this);
+    });
 
     editorLoader.load(path);
   }

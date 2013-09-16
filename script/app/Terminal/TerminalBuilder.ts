@@ -24,7 +24,7 @@ class TerminalBuilder implements Builder{
     this.terminalFactory = TerminalFactory.create();
   }
 
-  build():PresenterViewPair{
+  public build():PresenterViewPair{
 
     var presenter:Presenter = this.terminalFactory.createTerminalPresenter();
     var view:View = this.terminalFactory.createTerminalView();

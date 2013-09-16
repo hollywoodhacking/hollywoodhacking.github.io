@@ -1,0 +1,33 @@
+Welcome to hollywoodhacking.com
+developed in Yorkshire using typescript
+
+Nonsense text follows:
+TCP: Hash tables configured (established 1024 bind 512)
+TCP reno registered
+Total HugeTLB memory allocated, 0
+io scheduler noop registered
+io scheduler anticipatory registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+Real Time Clock Driver v1.12ac
+JS clipboard: I/O at 0x03c0
+Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing disabled
+serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a XScale
+RAMDISK driver initialized: 16 RAM disks of 4096K size 1024 blocksize
+loop: loaded (max 8 devices)
+Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+ide: Assuming 50MHz system bus speed for PIO modes; override with idebus=xx
+hda: JSLinux HARDDISK, ATA DISK drive
+ide0 at 0x1f0-0x1f7,0x3f6 on irq 14
+hda: max request size: 128KiB
+hda: 116736 sectors (59 MB) w/256KiB Cache, CHS=115/16/63
+ hda: unknown partition table
+TCP cubic registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+Using IPI Shortcut mode
+Time: pit clocksource has been installed.
+VFS: Mounted root (ext2 filesystem) readonly.
+Freeing unused kernel memory: 128k freed
+Booted in 14.877 s
+Welcome to JS/Linux

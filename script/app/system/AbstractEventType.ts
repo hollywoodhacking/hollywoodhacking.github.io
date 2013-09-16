@@ -10,13 +10,13 @@ class AbstractEventType {
 
   private eventHash = {};
 
-  public addListener(event, listener: (sender: Object) => void, context: Object): void{
+  public addListener(event, listener: (sender: Object) => void, context?: Object): void{
 
     if(!this.eventStored(event)){
       this.eventHash[event] = new Array<EventRecord>();
     }
 
-    this.eventHash[event].push({listener:listener, context:context});
+    this.eventHash[event].push({listener:listener, context:context||null});
   }
 
   public removeListener(event, listener: (sender: Object) => void ): void{
