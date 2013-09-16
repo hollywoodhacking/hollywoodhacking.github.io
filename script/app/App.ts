@@ -1,22 +1,21 @@
 /// <reference path="AppDefinitions.d.ts"/>
 /// <reference path="system/Builder.d.ts"/>
 /// <reference path="system/Presenter.d.ts"/>
-
+/// <reference path="system/ContainerView.d.ts"/>
 
 import EditorBuilder = require('Editor/EditorBuilder');
-import AppView = require('AppView');
 
 class App{
   private editorBuilder:EditorBuilder;
   private editorPresenter:Presenter;
-  private applicationView:AppView;
+  private applicationView:ContainerView;
 
   constructor(){
 
     this.editorBuilder = EditorBuilder.create();
   }
 
-  public init(applicationView:AppView):void{
+  public init(applicationView:ContainerView):void{
 
     this.applicationView = applicationView;
     this.loadEditor();
