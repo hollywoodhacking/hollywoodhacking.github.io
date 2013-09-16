@@ -1,0 +1,1 @@
+export function get(): string { return '<div class="terminal-container">    <pre class="j-terminal-input"></pre></div>'; }

@@ -22,6 +22,6 @@ def _gen_template():
   output_file.write(generated)
   output_file.close()
 
-  call('/usr/local/bin/tsc {0} --module amd'.format(destination_filename), shell=True)
+  call('/usr/bin/tsc {0} --module amd'.format(destination_filename), shell=True)
 
 _gen_template()

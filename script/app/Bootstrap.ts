@@ -6,11 +6,16 @@ import App = require('App');
 class Bootstrap{
   constructor(){
 
+    this.initApplication();
+
+  }
+
+  private initApplication(){
+
     var appView = new AppView('body');
     var app = new App();
 
     app.init(appView);
-
 
     // set up keyboard events
     $( document ).keydown((event)=>{
