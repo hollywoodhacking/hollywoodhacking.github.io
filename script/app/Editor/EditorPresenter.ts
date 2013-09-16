@@ -43,7 +43,6 @@ class EditorPresenter implements  Presenter{
 
   public attachView(view:View){
     this.editorView = view;
-    this.updateView();
   }
 
   private updateView():void{

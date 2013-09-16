@@ -1,12 +1,14 @@
 /// <reference path="AppDefinitions.d.ts"/>
+/// <reference path="system/Builder.d.ts"/>
 /// <reference path="system/Presenter.d.ts"/>
+
 
 import EditorBuilder = require('Editor/EditorBuilder');
 import AppView = require('AppView');
 
 class App{
-  private editorPresenter:Presenter;
   private editorBuilder:EditorBuilder;
+  private editorPresenter:Presenter;
   private applicationView:AppView;
 
   constructor(){
@@ -34,7 +36,14 @@ class App{
 
   private loadEditor():void{
 
-    this.editorPresenter = this.editorBuilder.build(this.applicationView);
+    var editorPair:PresenterViewPair = this.editorBuilder.build();
+
+    this.editorPresenter = editorPair.presenter;
+
+    this.applicationView.attachMainView(editorPair.view);
+
+    // kick off application with a backspace
+    this.editorPresenter.update(8);
   }
 
 

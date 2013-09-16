@@ -1,6 +1,6 @@
 /// <reference path="../AppDefinitions.d.ts"/>
 /// <reference path="../system/View.d.ts"/>
-/// <reference path="../system/ContainerView.d.ts"/>
+/// <reference path="../system/Builder.d.ts"/>
 
 interface sourceDescription{
   path:string;
@@ -12,7 +12,7 @@ import EditorPresenter = require('Editor/EditorPresenter');
 import EditorLoader = require('Editor/Loader');
 import ArrayHelpers = require('system/Utils/ArrayHelpers')
 
-class EditorBuilder{
+class EditorBuilder implements Builder{
 
   private static instance:EditorBuilder;
   private editorFactory:EditorFactory;
@@ -33,19 +33,20 @@ class EditorBuilder{
   }
 
 
-  public build(applicationView:ContainerView):EditorPresenter{
+  public build():PresenterViewPair{
 
-    var editor = this.getRandomEditor();
+    var editor:sourceDescription = this.getRandomEditor();
     var editorView:View = this.editorFactory.createEditorView(editor.type);
-
-    applicationView.attachMainView(editorView);
 
     this.editorPresenter = this.editorFactory.createEditorPresenter();
     this.editorPresenter.attachView(editorView);
 
     this.loadEditor(editor.path);
 
-    return this.editorPresenter;
+    return {
+      presenter:this.editorPresenter,
+      view: editorView
+    }
   }
 
   private getRandomEditor():sourceDescription{
