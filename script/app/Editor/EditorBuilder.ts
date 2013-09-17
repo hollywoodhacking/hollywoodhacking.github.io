@@ -58,6 +58,7 @@ class EditorBuilder implements Builder{
       {path: 'static/Optimizer.hs.txt', type:'text/x-haskell'},
       {path: 'script/app/App.ts', type:'text/x-csharp'},
       {path: 'static/java.txt', type:'text/x-java'}
+
     ];
 
     var item = ArrayHelpers.getRandomItem(sourceList);
