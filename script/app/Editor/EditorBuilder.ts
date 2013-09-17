@@ -57,7 +57,8 @@ class EditorBuilder implements Builder{
       {path: 'static/eve.py.txt', type:'text/x-python'},
       {path: 'static/Optimizer.hs.txt', type:'text/x-haskell'},
       {path: 'script/app/App.ts', type:'text/x-csharp'},
-      {path: 'static/java.txt', type:'text/x-java'}
+      {path: 'static/java.txt', type:'text/x-java'},
+      {path: 'static/bb.sh.txt', type:'text/x-sh'}
 
     ];
 
