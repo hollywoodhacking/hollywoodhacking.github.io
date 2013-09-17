@@ -16,4 +16,10 @@ body{
 .footer{height:20px; background:#444;}
 
 .terminal-container{padding-left:12px;}
+.terminal-input .bracket{color:#545454;}
+.terminal-input .at{color: #ff263a;}
+.terminal-input .name{color: #e5d762;}
+.terminal-input .host{color: #1f8c11;}
+.terminal-input .cursor{background-color: #FFF;}
+.terminal-input .chevron{color: #dedede; font-weight:bold;}
 .terminal-input{}
