@@ -49,8 +49,24 @@ describe('TerminalOutput', ()=>{
       terminalOutput.getText();
       terminalOutput.getText();
 
+      expect(terminalOutput.getText()).toBe('\n');
       expect(terminalOutput.getText()).toBe('%START');
       expect(terminalOutput.getText()).toBe('line 3\n');
+    });
+
+    it('goes back into single letter mode when a line begins with %', ()=>{
+      terminalOutput.setText('line 1\n%123\nline 3\n%123');
+
+      var i = 6;
+      while(i--){
+        terminalOutput.getText();
+      }
+
+      expect(terminalOutput.getText()).toBe('%START');
+      expect(terminalOutput.getText()).toBe('line 3\n');
+      expect(terminalOutput.getText()).toBe('%STOP');
+      expect(terminalOutput.getText()).toBe('1');
+
     });
 
     it('returns \'\' when there is no text', ()=>{
@@ -61,7 +77,7 @@ describe('TerminalOutput', ()=>{
     it('returns %STOP when the output has finished', ()=>{
       terminalOutput.setText('1');
 
-      terminalOutput.getText()
+      terminalOutput.getText();
       expect(terminalOutput.getText()).toBe('%STOP');
     });
 

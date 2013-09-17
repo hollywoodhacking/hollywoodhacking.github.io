@@ -1,11 +1,12 @@
 /// <reference path="../AppDefinitions.d.ts"/>
 /// <reference path="../system/Presenter.d.ts"/>
-/// <reference path="../system/View.d.ts"/>
 
+import TerminalView = require('Terminal/TerminalView');
 import TerminalOutput = require('Terminal/TerminalOutput');
 
 class TerminalPresenter implements Presenter{
-  private view:View;
+  private view:TerminalView;
+  private timeout:number;
   private terminalOutput:TerminalOutput;
   private MAX_DELAY:number = 1000;
   private mode:string = 'lines';
@@ -22,18 +23,22 @@ class TerminalPresenter implements Presenter{
 
   private autoUpdate():void{
 
-    var output = this.terminalOutput.getText();
+    var output:string = this.terminalOutput.getText();
+
+    clearTimeout(this.timeout);
 
     if(output === '%STOP'){
       this.mode = 'input';
+      this.view.startInput();
     }else if(output === '%START'){
-      this.mode === 'lines';
+      this.mode = 'lines';
+      this.view.stopInput();
     }else{
       this.view.update(output);
     }
 
     if(this.mode === 'lines'){
-      setTimeout(()=>{this.autoUpdate();}, this.getRandomDelay());
+      this.timeout = setTimeout(()=>{this.autoUpdate();}, this.getRandomDelay());
     }
   }
 
@@ -42,7 +47,7 @@ class TerminalPresenter implements Presenter{
     return Math.floor(Math.random()*this.MAX_DELAY);
   }
 
-  public attachView(view:View):void{
+  public attachView(view:TerminalView):void{
     this.view = view;
   }
 

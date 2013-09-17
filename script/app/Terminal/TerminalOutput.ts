@@ -15,13 +15,12 @@ class TerminalOutput{
 
     var nextOutput;
 
-    if(typeof this.lines === 'undefined'){
+    if(_(this.lines).isUndefined()){
       nextOutput = '';
     }else if(this.lineCount >= this.lines.length){
       nextOutput = '%STOP';
     }else if(this.isCurrentLineInput()){
       nextOutput = this.getNextLetter();
-      this.charCount++;
 
     }else{
       nextOutput = this.getLine();
@@ -43,21 +42,28 @@ class TerminalOutput{
   private getNextLetter():string{
 
     var currentLine = this.lines[this.lineCount];
-    var nextLetter;
+    var nextLetter = currentLine.charAt(this.charCount);
 
-    if(this.charCount >= currentLine.length){
+    if(this.charCount > currentLine.length){
 
       nextLetter = '%START';
       this.gotoNextLine();
 
-    }else if(this.charCount === 0){
-
-      nextLetter = '%STOP';
-
     }else{
+      if(this.charCount === currentLine.length){
 
-      nextLetter = currentLine.charAt(this.charCount);
+        nextLetter = '\n';
+
+      }else if(this.charCount === 0){
+
+        nextLetter = '%STOP';
+
+      }
+      this.charCount++;
+
     }
+
+
 
     return nextLetter;
   }

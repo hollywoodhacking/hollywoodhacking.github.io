@@ -14,3 +14,6 @@ body{
 .viewport{height: calc(100% - 20px);}
 
 .footer{height:20px; background:#444;}
+
+.terminal-container{padding-left:12px;}
+.terminal-input{}
