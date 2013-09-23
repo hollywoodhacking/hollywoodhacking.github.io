@@ -6,6 +6,8 @@ class TerminalOutput{
   private charCount:number = 0;
   private lineCount:number = 0;
 
+  private lastOutput:string;
+
   public setText(text){
 
     this.lines = text.split('\n');
@@ -18,7 +20,13 @@ class TerminalOutput{
     if(_(this.lines).isUndefined()){
       nextOutput = '';
     }else if(this.lineCount >= this.lines.length){
-      nextOutput = '%STOP';
+
+      if(this.lastOutput === '%STOP'){
+        nextOutput = '\n';
+      } else {
+        nextOutput = '%STOP';
+      }
+
     }else if(this.isCurrentLineInput()){
       nextOutput = this.getNextLetter();
 
@@ -26,6 +34,8 @@ class TerminalOutput{
       nextOutput = this.getLine();
       this.lineCount++;
     }
+
+    this.lastOutput = nextOutput;
 
     return nextOutput;
   }

@@ -74,11 +74,12 @@ describe('TerminalOutput', ()=>{
       expect(terminalOutput.getText()).toBe('');
     });
 
-    it('returns %STOP when the output has finished', ()=>{
+    it('returns %STOP when the output has finished then alternates with newline', ()=>{
       terminalOutput.setText('1');
 
       terminalOutput.getText();
       expect(terminalOutput.getText()).toBe('%STOP');
+      expect(terminalOutput.getText()).toBe('\n');
     });
 
 
