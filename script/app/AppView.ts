@@ -9,6 +9,7 @@ class AppView extends AbstractView implements ContainerView{
 
   constructor(selector){
     super(selector);
+    this.$('#splash .close').click(this.toggleSplash)
   }
 
   public attachMainView(view:View){
@@ -21,6 +22,10 @@ class AppView extends AbstractView implements ContainerView{
 
     this.mainView = view;
     this.$('#stage').append(el);
+  }
+
+  public toggleSplash(){
+    $('#splashHolder').toggle();
   }
 
 }

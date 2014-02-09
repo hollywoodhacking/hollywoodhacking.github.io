@@ -34,6 +34,9 @@ class App{
       case 117: // toggle mode with F6
         this.toggleMode();
         break;
+      case 27: // toggle splash with ESC
+        this.applicationView.toggleSplash();
+        break;
       default:
         this.presenter.update(key);
         break;

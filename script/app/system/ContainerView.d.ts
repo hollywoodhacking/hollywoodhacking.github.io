@@ -3,4 +3,5 @@
 
 interface ContainerView extends View{
   attachMainView(view:View):void;
+  toggleSplash():void;
 }
