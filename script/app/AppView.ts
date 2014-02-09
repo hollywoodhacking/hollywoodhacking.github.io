@@ -9,7 +9,17 @@ class AppView extends AbstractView implements ContainerView{
 
   constructor(selector){
     super(selector);
-    this.$('#splash .close').click(this.toggleSplash)
+    this.$('#splash .close').click(this.toggleSplash);
+
+    if(document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement){
+      this.hideFullscreenPrompt();
+    }
+    this.$('#fullscreen_prompt .dismiss').click(this.hideFullscreenPrompt);
+    document.addEventListener("fullscreenchange", this.hideFullscreenPrompt, false);
+    document.addEventListener("fullscreen", this.hideFullscreenPrompt, false);
+    document.addEventListener("mozfullscreenchange", this.hideFullscreenPrompt, false);
+    window.addEventListener("webkitfullscreenchange", this.hideFullscreenPrompt, false);
+    document.addEventListener("msfullscreenchange", this.hideFullscreenPrompt, false);
   }
 
   public attachMainView(view:View){
@@ -26,6 +36,10 @@ class AppView extends AbstractView implements ContainerView{
 
   public toggleSplash(){
     $('#splashHolder').toggle();
+  }
+
+  private hideFullscreenPrompt(){
+    $('#fullscreen_prompt').hide();
   }
 
 }
