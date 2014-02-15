@@ -11,9 +11,9 @@ class AppView extends AbstractView implements ContainerView{
     super(selector);
     this.$('#splash .close').click(this.toggleSplash);
 
-    if(document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement){
-      this.hideFullscreenPrompt();
-    }
+//    if(document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement){
+//      this.hideFullscreenPrompt();
+//    }
     this.$('#fullscreen_prompt .dismiss').click(this.hideFullscreenPrompt);
     document.addEventListener("fullscreenchange", this.hideFullscreenPrompt, false);
     document.addEventListener("fullscreen", this.hideFullscreenPrompt, false);
