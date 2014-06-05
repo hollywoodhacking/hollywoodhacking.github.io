@@ -5,6 +5,6 @@ require(['Bootstrap'],
     //   new Bootstrap();
     // });
 
-    new Bootstrap)();
+    new Bootstrap();
 
   });
