@@ -7,7 +7,7 @@
     "components"
   ],
   "dependencies": {
-  	"requirejs" : "*",
+  	"requirejs" : "2.1.10",
     "underscore": "*",
     "jquery"    : "*"
   }
