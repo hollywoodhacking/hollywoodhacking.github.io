@@ -1,4 +1,5 @@
 #Hollywood Hacking
+####Type like an elite hacker!
 
 <img src="https://travis-ci.org/benbrunton/Hacker-Typer.png?branch=master"/>
 
