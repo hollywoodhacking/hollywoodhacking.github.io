@@ -5,8 +5,8 @@
 
 import EditorBuilder = require('Editor/EditorBuilder');
 import TerminalBuilder = require('Terminal/TerminalBuilder');
-import FaceLocationView = require('FaceLocation/FaceLocationView');
-import FaceLocationPresenter = require('FaceLocation/FaceLocationPresenter');
+// import FaceLocationView = require('FaceLocation/FaceLocationView');
+// import FaceLocationPresenter = require('FaceLocation/FaceLocationPresenter');
 
 class App{
   private builder:Builder;
@@ -36,10 +36,10 @@ class App{
       case 117: // toggle mode with F6
         this.toggleMode();
         break;
-      case 118:
-        // move to face location mode F7
-        this.displayFaceLocationMode();
-        break;
+      // case 118:
+      //   // move to face location mode F7
+      //   this.displayFaceLocationMode();
+      //   break;
       case 27: // toggle splash with ESC
         this.applicationView.toggleSplash();
         break;
@@ -75,11 +75,11 @@ class App{
 
   private displayFaceLocationMode(){
 
-    var faceLocationView:FaceLocationView = new FaceLocationView('<div><div class="map"></div><div class="camera"></div></div>');
-    this.presenter = new FaceLocationPresenter();
-    this.presenter.attachView(faceLocationView);
-    this.applicationView.attachMainView(faceLocationView);
-    faceLocationView.start();
+    // var faceLocationView:FaceLocationView = new FaceLocationView('<div><div class="map"></div><div class="camera"></div></div>');
+    // this.presenter = new FaceLocationPresenter();
+    // this.presenter.attachView(faceLocationView);
+    // this.applicationView.attachMainView(faceLocationView);
+    // faceLocationView.start();
   }
 
 
