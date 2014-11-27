@@ -1,10 +1,8 @@
 #!/bin/sh
 
 deploy/minify.sh
-git config credential.helper "store --file=.git/credentials"
-echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-git config user.email "travis@travis-ci.org"
-git config user.name $GH_TOKEN
+git config user.name hollywoodhacking
+git config user.password "$PASSWORD"
 rm .gitignore
 git add . --all
 git commit -m "travis build ${TRAVIS_BUILD_NUMBER}"
