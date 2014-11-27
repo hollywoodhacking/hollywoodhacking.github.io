@@ -4,4 +4,4 @@ before_script: deploy/setup.sh
 after_success: deploy/deploy.sh
 env:
   global:
-    secure: kZbPWNZmCZogKpioj5v0X91HMXQ6JvBUzaZOAQR0TlIpta5a6PrzzY5DEA/W180yIEyEV2K6WpWNG09Hv23gzxbvfEPVw9mcjfZ+5hxFsXwVo1aGWYj6p3tZSCgqaVUVh85PJ0p4jwNUzw67vgF/JL6kuedV3YRIr6OMcGrQns8=
+    secure: mW7DrOXPTWUs+C2jK/knWyft2uqwxM+wN+udoRTZJldwG63n2Qb6rZsOxenLmh+GXXp7NSFEcIrSm+IX4Hj39ayKv+W0JqefVzxKOt9ala0+PLlBjfRM17TWyus8eEaS3sGO8MjPudBR+3Vhcv39aiIvu1Hi6mJ1u+33Ujyqdm8=
