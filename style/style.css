@@ -98,11 +98,11 @@ body{
 	float:right;
 	margin:4px 0;
 }
-.about a, .about a:visited{
+a, a:visited{
 	color:#666;
 }
 
-.about a:hover{
+a:hover{
 	color:#222;
 }
 
