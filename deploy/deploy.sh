@@ -7,5 +7,5 @@ git commit -m "travis build ${TRAVIS_BUILD_NUMBER}"
 git branch temp
 git checkout temp
 git checkout -B master temp
-git remote add deploy https://github.com/hollywoodhacking/hollywoodhacking.github.io.git
+git remote add deploy "https://${GH_TOKEN}@github.com/hollywoodhacking/hollywoodhacking.github.io.git"
 git push --force deploy master

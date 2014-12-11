@@ -2,3 +2,6 @@ language: node_js
 script: deploy/test.sh
 before_script: deploy/setup.sh
 after_success: deploy/deploy.sh
+env:
+  global:
+  - secure: WzmoE3i+UQgWzAEnp6qOPzTA2JSKObumQoW/AYXNwW8z3LvYDBrLuEdJT+xE3/JorgwQxVr0RJJGgJj9ycmFk4TLeSzVphZ1oArNXisjz3d/EoZybYXmSPaOJEt0TNtc8ZyFuJE3QzXHeOrwnpSTldNivXbSMXHOaffYzUHNOCk=
