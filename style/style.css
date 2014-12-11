@@ -93,3 +93,32 @@ body{
 	border-color:#888;
 	background-color: #DCDCDC;
 }
+
+.about{
+	float:right;
+	margin:4px 0;
+}
+.about a, .about a:visited{
+	color:#666;
+}
+
+.about a:hover{
+	color:#222;
+}
+
+.cta{
+	position:fixed;
+	top:200px;
+	width:100%;
+	opacity:0.5;
+}
+
+.cta div{
+	padding:10px;
+	border:1px solid #CCC;
+	color:#CCC;
+	background:#666;
+	font-size:1.4em;
+	width:200px;
+	margin:0 auto;
+}

@@ -45,6 +45,7 @@ class App{
         break;
       default:
         this.presenter.update(key);
+        $('.cta').hide();
         break;
     }
   }

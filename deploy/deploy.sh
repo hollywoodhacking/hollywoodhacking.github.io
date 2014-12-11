@@ -1,8 +1,6 @@
 #!/bin/sh
 
 deploy/minify.sh
-git config user.name hollywoodhacking
-git config user.password "$PASSWORD"
 rm .gitignore
 git add . --all
 git commit -m "travis build ${TRAVIS_BUILD_NUMBER}"

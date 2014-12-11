@@ -2,7 +2,9 @@
 .c9/
 *.js
 *.js.map
-
+node_modules/
+*.*.swp
+*.*~
 bower_components/
 npm-debug.log
 
