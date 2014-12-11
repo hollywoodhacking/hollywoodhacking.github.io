@@ -9,4 +9,4 @@ npm install -g requirejs
 npm install -g karma
 #bower install
 
-deploy/compile.sh
+#deploy/compile.sh

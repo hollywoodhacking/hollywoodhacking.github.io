@@ -1,7 +1,5 @@
 .idea/
 .c9/
-*.js
-*.js.map
 node_modules/
 *.*.swp
 *.*~
